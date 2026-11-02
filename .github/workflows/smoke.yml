@@ -1,6 +1,7 @@
 name: smoke
 
 # Azure 호출 없이 의존성 정합성·구문·모듈 임포트를 확인하는 스모크 테스트입니다.
+# Python 3.14.5 빌드가 Ubuntu 26.04(ubuntu-latest)에는 없어 러너를 ubuntu-24.04로 고정합니다.
 on:
   push:
     branches: ["**"]
@@ -12,7 +13,7 @@ permissions:
 
 jobs:
   console:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     steps:
       - uses: actions/checkout@v4
 
@@ -51,7 +52,7 @@ jobs:
           PY
 
   hosted:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     strategy:
       fail-fast: false
       matrix:
